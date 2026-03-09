@@ -15,10 +15,10 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText etEmail, etPassword;
     Button btnLogin;
-    TextView tvRegister;
+    TextView tvGoRegister;
 
     DBHelper db;
-    com.example.mad_project.Project.SessionManager session;
+    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,33 +28,42 @@ public class LoginActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
-        /*tvRegister = findViewById(R.id.tvRegister);*/
+        tvGoRegister = findViewById(R.id.tvGoRegister);
 
         db = new DBHelper(this);
-        session = new com.example.mad_project.Project.SessionManager(this);
+        session = new SessionManager(this);
 
         btnLogin.setOnClickListener(v -> {
+
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Please enter email and password", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             long userId = db.loginUser(email, password);
 
             if (userId > 0) {
+
                 session.saveLogin(userId);
-                startActivity(new Intent(this, HomeActivity.class));
+
+                Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
                 finish();
+
             } else {
-                Toast.makeText(this, "Invalid Login", Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
             }
         });
 
-        tvRegister.setOnClickListener(v ->
-                startActivity(new Intent(this, RegisterActivity.class))
-        );
+        tvGoRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        });
     }
 }
