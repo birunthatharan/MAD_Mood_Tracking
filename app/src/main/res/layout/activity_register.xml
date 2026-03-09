@@ -40,56 +40,69 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="673dp"
+            android:background="#F5F5F5"
             android:orientation="vertical"
             android:padding="20dp">
 
             <!-- Full Name -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_full_name"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:hint="@string/hint_full_name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autofillHints="name"
+                    android:background="@android:drawable/edit_text"
+                    android:hint="Full Name"
                     android:inputType="textPersonName"
-                    android:autofillHints="name"/>
+                    android:textColor="#000000"
+                    android:textColorHint="#666666" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Email -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:hint="@string/hint_email"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:hint="@string/hint_email">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etEmail"
+                    android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:autofillHints="emailAddress"/>
+                    android:autofillHints="name"
+                    android:hint="Email"
+                    android:background="@android:drawable/edit_text"
+                    android:inputType="textPersonName"
+                    android:textColor="#000000"
+                    android:textColorHint="#666666" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Password -->
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:hint="@string/hint_password"
-                app:endIconMode="password_toggle"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                app:endIconMode="password_toggle">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:autofillHints="password"
+                    android:background="@android:drawable/edit_text"
                     android:inputType="textPassword"
-                    android:autofillHints="password"/>
+                    android:textColor="#000000"
+                    android:textColorHint="#666666" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Register Button -->
@@ -100,18 +113,18 @@
                 android:layout_marginTop="18dp"
                 android:text="@string/btn_register"
                 android:textStyle="bold"
-                app:cornerRadius="14dp"/>
+                app:cornerRadius="14dp" />
 
             <!-- Login Redirect -->
             <TextView
                 android:id="@+id/tvLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
                 android:gravity="center"
                 android:text="@string/login_redirect"
                 android:textColor="#4F46E5"
-                android:textStyle="bold"
-                android:layout_marginTop="18dp"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
