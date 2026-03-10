@@ -6,13 +6,22 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "mood_journal.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+    }
+
+    @Override
+    public void onConfigure(SQLiteDatabase db) {
+        super.onConfigure(db);
+        db.setForeignKeyConstraintsEnabled(true);
     }
 
     @Override
@@ -20,16 +29,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE users (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "name TEXT," +
-                "email TEXT UNIQUE," +
-                "password TEXT)");
+                "name TEXT NOT NULL," +
+                "email TEXT UNIQUE NOT NULL," +
+                "password TEXT NOT NULL)");
 
         db.execSQL("CREATE TABLE moods (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "user_id INTEGER," +
-                "mood TEXT," +
+                "user_id INTEGER NOT NULL," +
+                "mood TEXT NOT NULL," +
                 "note TEXT," +
-                "date TEXT)");
+                "date TEXT NOT NULL," +
+                "FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE)");
     }
 
     @Override
@@ -39,22 +49,20 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // Register
     public long registerUser(String name, String email, String password) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("name", name);
         cv.put("email", email);
-        cv.put("password", password);
+        cv.put("password", hashPassword(password));
         return db.insert("users", null, cv);
     }
 
-    // Login
     public long loginUser(String email, String password) {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery(
                 "SELECT id FROM users WHERE email=? AND password=?",
-                new String[]{email, password}
+                new String[]{email, hashPassword(password)}
         );
 
         if (c.moveToFirst()) {
@@ -62,11 +70,11 @@ public class DBHelper extends SQLiteOpenHelper {
             c.close();
             return id;
         }
+
         c.close();
         return -1;
     }
 
-    // Add Mood
     public long addMood(long userId, String mood, String note, String date) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -77,7 +85,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.insert("moods", null, cv);
     }
 
-    // Get Moods
     public Cursor getMoods(long userId) {
         SQLiteDatabase db = getReadableDatabase();
         return db.rawQuery(
@@ -86,7 +93,6 @@ public class DBHelper extends SQLiteOpenHelper {
         );
     }
 
-    // Update Mood
     public int updateMood(long moodId, long userId, String mood, String note) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -101,7 +107,6 @@ public class DBHelper extends SQLiteOpenHelper {
         );
     }
 
-    // Delete Mood
     public int deleteMood(long moodId, long userId) {
         SQLiteDatabase db = getWritableDatabase();
         return db.delete(
@@ -109,5 +114,22 @@ public class DBHelper extends SQLiteOpenHelper {
                 "id=? AND user_id=?",
                 new String[]{String.valueOf(moodId), String.valueOf(userId)}
         );
+    }
+
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] bytes = md.digest(password.getBytes());
+            StringBuilder sb = new StringBuilder();
+
+            for (byte b : bytes) {
+                sb.append(String.format("%02x", b));
+            }
+
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return password;
+        }
     }
 }
