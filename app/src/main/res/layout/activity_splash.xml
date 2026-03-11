@@ -7,27 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".Splash">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="220dp"
-        android:layout_height="188dp"
-        app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:layout_editor_absoluteX="95dp"
-        tools:layout_editor_absoluteY="271dp" />
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="161dp"
-        android:layout_height="21dp"
-        android:text="DAILY MOOD JOURNAL"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="161dp" />
-
-    <TextView
-        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reflect. Understand. Grow."
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="542dp" />
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="582dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="1373dp"
+        android:layout_height="1192dp"
+        app:srcCompat="@drawable/_125200_emoji"
+        tools:layout_editor_absoluteX="-471dp"
+        tools:layout_editor_absoluteY="-253dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
