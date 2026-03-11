@@ -17,6 +17,19 @@ public class MoodHistory extends AppCompatActivity {
     String tutorials[]
             ={"24th of March - Happy ", "25th of March - Happy ", "26th of March - Sad "};
 
+    public class MainActivity extends AppCompatActivity {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            Button btnAddMood = findViewById(R.id.btnAddMood);
+            btnAddMood.setOnClickListener(v -> {
+                // Logic to go to Mood Selection screen
+            });
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
