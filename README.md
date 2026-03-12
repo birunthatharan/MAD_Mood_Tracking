@@ -67,11 +67,11 @@ This project demonstrates the use of Android development, database integration, 
 •	Add Mood Entry Screen
 •	Mood History Screen
 
-👨‍💻 Team Members
-Name	Registration Number
-S.Birunthatharan	ICT/2022/028
-C.A.Kumarawadu	ICT/2022/033
-S.H.D.Mihidumpita	ICT/2022/027
+👨‍💻 Team Members<br>
+Name	Registration Number<br>
+S.Birunthatharan	ICT/2022/028<br>
+C.A.Kumarawadu	ICT/2022/033<br>
+S.H.D.Mihidumpita	ICT/2022/027<br>
 
 
 
