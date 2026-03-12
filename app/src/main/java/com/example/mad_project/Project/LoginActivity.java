@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
             long userId = db.loginUser(email, password);
 
-            if (userId > 0) {
+            //if (userId > 0) {
 
                 session.saveLogin(userId);
 
@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             } else {
 
                 Toast.makeText(LoginActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
-            }
+            }//
         });
 
         tvGoRegister.setOnClickListener(v -> {
