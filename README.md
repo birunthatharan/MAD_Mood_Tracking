@@ -70,7 +70,7 @@ Mr.S.H.D.Mihidumpita	ICT/2022/027
 
 
 
-
+~~~
 Project
 │
 ├── Java Files
@@ -96,6 +96,7 @@ Project
     ├── activity_mood_history.xml
     ├── activity_splash.xml
     └── activity_main.xml
+~~~
 🚀 How to Run the Project
 1.	Clone the repository
 https://github.com/birunthatharan/MAD_Mood_Tracking.git
