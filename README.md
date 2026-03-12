@@ -31,21 +31,25 @@ This project demonstrates the use of Android development, database integration, 
 
 🗄 Database Structure
 
-###Users Table
+## Database Structure
 
-Field	Type	Description
-id	INTEGER	Primary key
-email	TEXT	User email
-password	TEXT	Encrypted password
+### Users Table
 
-###Mood Table
+| Field | Type | Description |
+|------|------|-------------|
+| id | INTEGER | Primary Key |
+| email | TEXT | User email |
+| password | TEXT | Encrypted password |
 
-Field	Type	Description
-id	INTEGER	Primary key
-user_id	INTEGER	Foreign key
-mood	TEXT	Selected mood
-note	TEXT	Optional note
-date	TEXT	Entry date
+### Mood Table
+
+| Field | Type | Description |
+|------|------|-------------|
+| id | INTEGER | Primary Key |
+| user_id | INTEGER | Foreign Key |
+| mood | TEXT | Selected mood |
+| note | TEXT | Optional note |
+| date | TEXT | Entry date |
 
 
 🛠 Technologies Used
