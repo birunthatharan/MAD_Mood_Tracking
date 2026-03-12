@@ -30,12 +30,16 @@ This project demonstrates the use of Android development, database integration, 
 •	Delete mood entry
 
 🗄 Database Structure
-Users Table
+
+###Users Table
+
 Field	Type	Description
 id	INTEGER	Primary key
 email	TEXT	User email
 password	TEXT	Encrypted password
-Mood Table
+
+###Mood Table
+
 Field	Type	Description
 id	INTEGER	Primary key
 user_id	INTEGER	Foreign key
