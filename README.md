@@ -69,9 +69,9 @@ This project demonstrates the use of Android development, database integration, 
 
 👨‍💻 Team Members
 Name	Registration Number
-Mr.S.Birunthatharan	ICT/2022/028
-Ms.C.A.Kumarawadu	ICT/2022/033
-Mr.S.H.D.Mihidumpita	ICT/2022/027
+S.Birunthatharan	ICT/2022/028
+C.A.Kumarawadu	ICT/2022/033
+S.H.D.Mihidumpita	ICT/2022/027
 
 
 
