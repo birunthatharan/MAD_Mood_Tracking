@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Date"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MoodSelection">
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="393dp"
-        android:layout_height="68dp"
-        android:fontFamily="@font/b612_mono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="How do you feel today?"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="62dp" />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="160dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="date"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -32,56 +26,135 @@
         android:layout_height="wrap_content"
         android:text="Date:"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="115dp" />
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp" />
 
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:layout_constraintStart_toEndOf="@id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="20dp" />
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="89dp"
-        android:layout_height="94dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:srcCompat="@drawable/pngtree_joyful_emoji_with_thumbs_up_perfect_for_social_media_graphics_png_image_16239943"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="182dp" />
+        app:layout_constraintTop_toBottomOf="@id/editTextDate"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="24dp" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="83dp"
-        android:layout_height="90dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:srcCompat="@drawable/_80b57fcd9996e24bc43c4bd"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="182dp" />
+        app:layout_constraintTop_toTopOf="@id/imageView"
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        android:layout_marginStart="40dp" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="77dp"
-        android:layout_height="74dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:srcCompat="@drawable/_897aa00cba9841eabab615a"
-        tools:layout_editor_absoluteX="283dp"
-        tools:layout_editor_absoluteY="191dp" />
+        app:layout_constraintTop_toTopOf="@id/imageView"
+        app:layout_constraintStart_toEndOf="@id/imageView2"
+        android:layout_marginStart="40dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Happy"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintStart_toStartOf="@id/imageView"
+        app:layout_constraintEnd_toEndOf="@id/imageView"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Excited"
+        app:layout_constraintTop_toBottomOf="@id/imageView2"
+        app:layout_constraintStart_toStartOf="@id/imageView2"
+        app:layout_constraintEnd_toEndOf="@id/imageView2"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Love"
+        app:layout_constraintTop_toBottomOf="@id/imageView4"
+        app:layout_constraintStart_toStartOf="@id/imageView4"
+        app:layout_constraintEnd_toEndOf="@id/imageView4"
+        android:layout_marginTop="8dp" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="78dp"
-        android:layout_height="79dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:srcCompat="@drawable/_80b57fcd9996e24bc43c4be"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="306dp" />
+        app:layout_constraintTop_toBottomOf="@id/textView8"
+        app:layout_constraintStart_toStartOf="@id/imageView"
+        android:layout_marginTop="24dp" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="86dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:srcCompat="@drawable/_862951a3796e30ac4468737"
-        tools:layout_editor_absoluteX="164dp"
-        tools:layout_editor_absoluteY="315dp" />
+        app:layout_constraintTop_toTopOf="@id/imageView5"
+        app:layout_constraintStart_toStartOf="@id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="85dp"
-        android:layout_height="77dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:srcCompat="@drawable/_80b57fcd9996e24bc43c4b7"
-        tools:layout_editor_absoluteX="283dp"
-        tools:layout_editor_absoluteY="315dp" />
+        app:layout_constraintTop_toTopOf="@id/imageView5"
+        app:layout_constraintStart_toStartOf="@id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sad"
+        app:layout_constraintTop_toBottomOf="@id/imageView5"
+        app:layout_constraintStart_toStartOf="@id/imageView5"
+        app:layout_constraintEnd_toEndOf="@id/imageView5"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Angry"
+        app:layout_constraintTop_toBottomOf="@id/imageView6"
+        app:layout_constraintStart_toStartOf="@id/imageView6"
+        app:layout_constraintEnd_toEndOf="@id/imageView6"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sick"
+        app:layout_constraintTop_toBottomOf="@id/imageView7"
+        app:layout_constraintStart_toStartOf="@id/imageView7"
+        app:layout_constraintEnd_toEndOf="@id/imageView7"
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/textView7"
@@ -89,80 +162,47 @@
         android:layout_height="wrap_content"
         android:text="Note:"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="434dp" />
+        app:layout_constraintTop_toBottomOf="@id/textView11"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp" />
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="342dp"
-        android:layout_height="74dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="About Mood"
         android:inputType="text"
-        android:text="About Mood"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="465dp" />
+        app:layout_constraintTop_toBottomOf="@id/textView7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="340dp"
-        android:layout_height="48dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="Save Mood"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="572dp" />
+        app:layout_constraintTop_toBottomOf="@id/editTextText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="335dp"
-        android:layout_height="52dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text="Edit Mood"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="634dp" />
+        app:layout_constraintTop_toBottomOf="@id/button4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Happy"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="272dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Exited"
-        tools:layout_editor_absoluteX="186dp"
-        tools:layout_editor_absoluteY="272dp" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Love"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="272dp" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sad"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="392dp" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Angry"
-        tools:layout_editor_absoluteX="187dp"
-        tools:layout_editor_absoluteY="392dp" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sick"
-        tools:layout_editor_absoluteX="308dp"
-        tools:layout_editor_absoluteY="392dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

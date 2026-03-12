@@ -15,11 +15,11 @@
         tools:layout_editor_absoluteY="582dp" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="1373dp"
-        android:layout_height="1192dp"
-        app:srcCompat="@drawable/_125200_emoji"
-        tools:layout_editor_absoluteX="-471dp"
-        tools:layout_editor_absoluteY="-253dp" />
+        android:id="@+id/imageView10"
+        android:layout_width="231dp"
+        android:layout_height="233dp"
+        app:srcCompat="@drawable/ic_android_black_24dp"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="202dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

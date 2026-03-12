@@ -1,41 +1,118 @@
 package com.example.dailymoodjournal;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MoodSelection extends AppCompatActivity {
 
-    ImageView ivHappy = findViewById(R.id.ivHappy)
-    final String[] selectedMood = {""};
+    ImageView imageView, imageView2, imageView4, imageView5, imageView6, imageView7;
+    EditText editTextDate, editTextText;
+    Button button4, button5;
 
-ivHappy.setOnClickListener(v -> {
-        selectedMood[0] = "Happy";
-        // Optional: Add a border or highlight to ivHappy here
-        ivHappy.setBackgroundColor(Color.LTGRAY);
-    });
-
-    Button btnSave = findViewById(R.id.btnSaveMood);
-btnSave.setOnClickListener(v -> {
-        String note = etMoodNote.getText().toString();
-        String date = etDate.getText().toString();
-        // Save to Database or SharedPrefs
-        Toast.makeText(this, "Saved: " + selectedMood[0], Toast.LENGTH_SHORT).show();
-    });
+    String selectedMood = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_mood_selection);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.Date), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        // Connect UI components
+        editTextDate = findViewById(R.id.editTextDate);
+        editTextText = findViewById(R.id.editTextText);
+
+        button4 = findViewById(R.id.button4); // Save Mood
+        button5 = findViewById(R.id.button5); // Edit Mood
+
+        imageView = findViewById(R.id.imageView);     // Happy
+        imageView2 = findViewById(R.id.imageView2);   // Excited
+        imageView4 = findViewById(R.id.imageView4);   // Love
+        imageView5 = findViewById(R.id.imageView5);   // Sad
+        imageView6 = findViewById(R.id.imageView6);   // Angry
+        imageView7 = findViewById(R.id.imageView7);   // Sick
+
+        // Mood selection
+        imageView.setOnClickListener(v -> {
+            resetMoodSelection();
+            selectedMood = "Happy";
+            imageView.setBackgroundColor(Color.LTGRAY);
         });
+
+        imageView2.setOnClickListener(v -> {
+            resetMoodSelection();
+            selectedMood = "Excited";
+            imageView2.setBackgroundColor(Color.LTGRAY);
+        });
+
+        imageView4.setOnClickListener(v -> {
+            resetMoodSelection();
+            selectedMood = "Love";
+            imageView4.setBackgroundColor(Color.LTGRAY);
+        });
+
+        imageView5.setOnClickListener(v -> {
+            resetMoodSelection();
+            selectedMood = "Sad";
+            imageView5.setBackgroundColor(Color.LTGRAY);
+        });
+
+        imageView6.setOnClickListener(v -> {
+            resetMoodSelection();
+            selectedMood = "Angry";
+            imageView6.setBackgroundColor(Color.LTGRAY);
+        });
+
+        imageView7.setOnClickListener(v -> {
+            resetMoodSelection();
+            selectedMood = "Sick";
+            imageView7.setBackgroundColor(Color.LTGRAY);
+        });
+
+        // Save mood button
+        button4.setOnClickListener(v -> {
+            String date = editTextDate.getText().toString().trim();
+            String note = editTextText.getText().toString().trim();
+
+            if (selectedMood.isEmpty()) {
+                Toast.makeText(MoodSelection.this, "Please select a mood", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (date.isEmpty()) {
+                editTextDate.setError("Enter date");
+                return;
+            }
+
+            if (note.isEmpty()) {
+                editTextText.setError("Enter note");
+                return;
+            }
+
+            Toast.makeText(
+                    MoodSelection.this,
+                    "Mood Saved\nMood: " + selectedMood + "\nDate: " + date + "\nNote: " + note,
+                    Toast.LENGTH_LONG
+            ).show();
+        });
+
+        // Edit mood button
+        button5.setOnClickListener(v -> {
+            editTextText.requestFocus();
+            Toast.makeText(MoodSelection.this, "You can edit the mood note now", Toast.LENGTH_SHORT).show();
+        });
+    }
+
+    private void resetMoodSelection() {
+        imageView.setBackgroundColor(Color.TRANSPARENT);
+        imageView2.setBackgroundColor(Color.TRANSPARENT);
+        imageView4.setBackgroundColor(Color.TRANSPARENT);
+        imageView5.setBackgroundColor(Color.TRANSPARENT);
+        imageView6.setBackgroundColor(Color.TRANSPARENT);
+        imageView7.setBackgroundColor(Color.TRANSPARENT);
     }
 }
