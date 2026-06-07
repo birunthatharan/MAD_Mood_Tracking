@@ -87,7 +87,6 @@ Project
 │   ├── HomeActivity.java
 │   ├── MoodSelection.java
 │   ├── MoodHistory.java
-│   ├── Splash.java
 │   └── MainActivity.java
 │
 ├── Database
@@ -102,7 +101,6 @@ Project
     ├── activity_home.xml
     ├── activity_mood_selection.xml
     ├── activity_mood_history.xml
-    ├── activity_splash.xml
     └── activity_main.xml
 ~~~
 🚀 How to Run the Project
