@@ -60,7 +60,6 @@ This project demonstrates the use of Android development, database integration, 
 •	GitHub (Version Control)
 
 📱 Application Screens
-•	Splash Screen
 •	Login Screen
 •	Registration Screen
 •	Mood Selection Screen
